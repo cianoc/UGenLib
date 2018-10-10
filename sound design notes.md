@@ -75,7 +75,19 @@ in sound synthesis, i suggest bending this rule. the sound sources we work with 
 
 i call this "color reverb" and it turns out you don't even need a good reverb to accomplish it. one of my secret tricks for acoustic instruments is to make an intentionally crappy reverb with a bunch of randomly tuned mildly resonant comb filters in parallel. such a filter has a lumpy frequency response with weird metallic resonances and wolf tones. tuned for subtlety, it really ups the realism of an acoustic instrument. different mixes of comb filters to the left and right channels also give some spatialization, but you might not need that -- you should be sending it to another 'verb anyway.
 
+### Stereo image
 
+there is nothing close to a consensus about how to use stereo image, and the style you use is all part of your artistic practice. that said, many producers would agree that having any kind of stereo image is pretty essential for making electronic music come alive.
+
+a simple and perfectly serviceable method is to make all instruments mono, pan them around, and polish the stereo with tasteful reverb.
+
+some instruments, however, can benefit from having stereo right off the bat. for example, back up in the section on oscillator detuning, you can make pads sound much wider by spreading the detuned oscillators around the stereo field. using multichannel expansion to create a bunch of parallel, slightly different copies of something and then spreading them around with `Splay.ar` is an incredibly fun SC-exclusive trick that i have to watch myself not to overuse. more conventionally, flangers, chorus, and tremolo are all effects that adapt easily for stereo.
+
+my recommendation on working with this in SC is to output stereo audio to a bus, then use `Balance2` as a post-panning stage. i'd also recommend using a super wide stereo image at first and then narrowing it, but admittedly i haven't thought about what a good stereo narrowing formula is yet.
+
+if you're feeling adventurous, i recommend playing around with Haas panning for a cool immersive mix. to Haas pan a mono signal X, play X into the left channel, and play a slightly delayed version of X into the right channel. for more realism, lowpass filter the delayed channel. done right, it can give the impression of sound sources outside the speakers or headphones.
+
+conventionally, the Haas effect is not super common, and when used, found on only some elements of the mix. my guess is that 1. the effect isn't easily accessible in most DAWs, 2. it can create a comb filtering effect when reduced to mono, and 3. the benefits of the effect are not as stunning on speaker systems as they are on headphones. but since you use SuperCollider, you're probably inherently less worried about tradition, so have at it.
 
 # Using Combs
 
