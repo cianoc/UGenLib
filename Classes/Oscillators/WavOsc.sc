@@ -2,7 +2,7 @@
 At some point I will fix so that this works appropriately.
 */
 
-WavOsc{
+WavHarmOsc{
 	classvar buf;
 	*bufAlloc{ |server, spectrumFunc, baseFreq=40|
 		// C0 is 32
@@ -33,26 +33,26 @@ WavOsc{
 	}
 }
 
-WavSaw : WavOsc{
+WavSaw : WavHarmOsc{
 
 	*initBuffer{|server|
 		var basefreq = 40;
 		if(buf == nil){
 			server = server ? Server.default;
-			buf = WavOsc.bufAlloc(server, { |numharm| (1..numharm).reciprocal }, 40);
+			buf = WavHarmOsc.bufAlloc(server, { |numharm| (1..numharm).reciprocal }, 40);
 		}
 	}
 
 
 }
 
-WavTri : WavOsc{
+WavTri : WavHarmOsc{
 
 	*initBuffer{|server|
 		var basefreq = 40;
 		if(buf == nil){
 			server = server ? Server.default;
-			buf = WavOsc.bufAlloc(server, { |topPartial = 20| [(1, 3 .. topPartial).reciprocal.squared * #[1, -1], 0].lace(topPartial) } , 40);
+			buf = WavHarmOsc.bufAlloc(server, { |topPartial = 20| [(1, 3 .. topPartial).reciprocal.squared * #[1, -1], 0].lace(topPartial) } , 40);
 		}
 	}
 
