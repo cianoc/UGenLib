@@ -1,0 +1,21 @@
+TITLE:: Satan
+summary:: A compression with harsh distortion.
+
+categories:: UGens>Dynamics
+related:: Classes/Compander
+
+DESCRIPTION::
+A replication of the legendary LADSPA plugin of the same name, originally written by steve harris. a compressor with a super fast attack which results in harsh distortion fx. requires sc3-plugins. Code adapted from Nathan Ho's supercollider code.
+
+CLASSMETHODS::
+
+METHOD:: ar
+
+ARGUMENT:: in
+The signal to be compressed/distorted.
+
+ARGUMENT:: env
+Length of the envelope. Length is in miliseconds. Values from 1 (quick) to 0.1 (super quick) work well.
+
+ARGUMENT:: knee
+Amplitude of the knee.
